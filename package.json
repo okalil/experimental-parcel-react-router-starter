@@ -8,6 +8,7 @@
       "source": "src/server.tsx",
       "context": "react-server",
       "includeNodeModules": {
+        "@mjackson/node-fetch-server": false,
         "express": false
       }
     }
@@ -17,17 +18,21 @@
     "build": "parcel build"
   },
   "dependencies": {
-    "@parcel/rsc": "^2.14.3",
+    "@mjackson/node-fetch-server": "^0.6.1",
     "express": "^4.21.2",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-router": "0.0.0-experimental-213e4b178",
+    "react-server-dom-parcel": "^19.1.0"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/express": "^4",
-    "@types/parcel-env": "^0.0.6",
     "@types/node": "^22.10.5",
+    "@types/parcel-env": "^0.0.6",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "parcel": "^2.14.0"
+    "parcel": "^2.14.0",
+    "prettier": "^3.5.3"
   }
 }

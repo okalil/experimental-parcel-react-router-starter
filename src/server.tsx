@@ -1,26 +1,39 @@
-import express from 'express';
-import {renderRequest, callAction} from '@parcel/rsc/node';
+import { createRequestListener } from "@mjackson/node-fetch-server";
+import express from "express";
+// @ts-expect-error - no types
+import { renderToReadableStream as renderHTMLToReadableStream } from "react-dom/server.edge" with { env: "react-client" };
+// @ts-expect-error
+import { createFromReadableStream } from "react-server-dom-parcel/client.edge" with { env: "react-client" };
+import {
+  routeServerRequest,
+  ServerStaticRouter,
+} from "react-router" with { env: "react-client" };
 
-// Page components. These must have "use server-entry" so they are treated as code splitting entry points.
-import {Page} from './Page';
+import { callServer } from "./server-react" with { env: "react-server" };
 
 const app = express();
 
-app.use(express.static('dist'));
+app.use(express.static("dist"));
 
-app.get('/', async (req, res) => {
-  await renderRequest(req, res, <Page />, {component: Page});
-});
-
-app.post('/', async (req, res) => {
-  let id = req.get('rsc-action-id');
-  let {result} = await callAction(req, id);
-  let root: any = <Page />;
-  if (id) {
-    root = {result, root};
-  }
-  await renderRequest(req, res, root, {component: Page});
-});
+app.use(
+  createRequestListener(async (request) => {
+    return routeServerRequest(
+      request,
+      callServer,
+      createFromReadableStream,
+      async (payload) => {
+        return await renderHTMLToReadableStream(
+          <ServerStaticRouter payload={payload} />,
+          {
+            bootstrapScriptContent: (
+              callServer as unknown as { bootstrapScript: string }
+            ).bootstrapScript,
+          }
+        );
+      }
+    );
+  })
+);
 
 app.listen(3000);
-console.log('Server listening on port 3000');
+console.log("Server listening on port 3000");

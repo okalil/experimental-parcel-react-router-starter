@@ -3,9 +3,15 @@
 import { useState } from "react";
 
 export function Counter() {
-  let [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
   return (
-    <button onClick={() => setCount(count + 1)}>Count: {count}</button>
+    <div>
+      <h1>Counter</h1>
+      <p>Current count: {count}</p>
+      <button type="button" onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
   );
 }
