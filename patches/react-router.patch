@@ -1,16 +1,28 @@
 diff --git a/package.json b/package.json
-index 6fe2aee1b10a9b47dcf0e1d30cce825479e263f7..a696c04c4224b96a7664379c95f1157a5cb2246b 100644
+index 36a6482d5487479e6e7c52dba24aa471defd417e..75efc62bb4731f28cf180c410000e9d2b6b5ad3e 100644
 --- a/package.json
 +++ b/package.json
-@@ -24,70 +24,31 @@
+@@ -18,67 +18,36 @@
+   "license": "MIT",
+   "author": "Remix Software <hello@remix.run>",
+   "sideEffects": false,
+-  "types": "./dist/development/index.d.ts",
+-  "main": "./dist/development/index.js",
+-  "module": "./dist/development/index.mjs",
++  "type": "module",
    "exports": {
      ".": {
        "react-server": {
--        "node": {
--          "types": "./dist/development/server.d.ts",
+         "node": {
+           "types": "./dist/development/server.d.ts",
+-          "module": "./dist/development/server.mjs",
 -          "module-sync": "./dist/development/server.mjs",
 -          "default": "./dist/development/server.js"
 -        },
+-        "module": {
+-          "types": "./dist/development/server.d.mts",
+           "default": "./dist/development/server.mjs"
+         },
 -        "import": {
 +        "default": {
            "types": "./dist/development/server.d.mts",
@@ -21,11 +33,16 @@ index 6fe2aee1b10a9b47dcf0e1d30cce825479e263f7..a696c04c4224b96a7664379c95f1157a
 -          "default": "./dist/development/server.js"
          }
        },
--      "node": {
--        "types": "./dist/development/index.d.ts",
+       "node": {
+         "types": "./dist/development/index.d.ts",
+-        "module": "./dist/development/index.mjs",
 -        "module-sync": "./dist/development/index.mjs",
 -        "default": "./dist/development/index.js"
 -      },
+-      "module": {
+-        "types": "./dist/development/index.d.mts",
+         "default": "./dist/development/index.mjs"
+       },
 -      "import": {
 +      "default": {
          "types": "./dist/development/index.d.mts",
@@ -37,11 +54,15 @@ index 6fe2aee1b10a9b47dcf0e1d30cce825479e263f7..a696c04c4224b96a7664379c95f1157a
        }
      },
      "./client": {
--      "node": {
--        "types": "./dist/development/index.d.ts",
+       "node": {
+         "types": "./dist/development/index.d.ts",
 -        "module-sync": "./dist/development/index.mjs",
 -        "default": "./dist/development/index.js"
 -      },
+-      "module": {
+-        "types": "./dist/development/index.d.mts",
+         "default": "./dist/development/index.mjs"
+       },
 -      "import": {
 +      "default": {
          "types": "./dist/development/index.d.mts",
@@ -53,20 +74,18 @@ index 6fe2aee1b10a9b47dcf0e1d30cce825479e263f7..a696c04c4224b96a7664379c95f1157a
        }
      },
      "./route-module": {
--      "import": {
--        "types": "./dist/development/lib/types/route-module.d.mts"
--      },
-       "default": {
--        "types": "./dist/development/lib/types/route-module.d.ts"
-+        "types": "./dist/development/lib/types/route-module.d.mts"
-       }
-     },
+@@ -92,21 +61,11 @@
      "./dom": {
--      "node": {
--        "types": "./dist/development/dom-export.d.ts",
+       "node": {
+         "types": "./dist/development/dom-export.d.ts",
+-        "module": "./dist/development/dom-export.mjs",
 -        "module-sync": "./dist/development/dom-export.mjs",
 -        "default": "./dist/development/dom-export.js"
 -      },
+-      "module": {
+-        "types": "./dist/development/dom-export.d.mts",
+         "default": "./dist/development/dom-export.mjs"
+       },
 -      "import": {
 +      "default": {
          "types": "./dist/development/dom-export.d.mts",

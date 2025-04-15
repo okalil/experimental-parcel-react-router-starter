@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   react-router:
-    hash: e4052743a07aecf9e5a035e3039c2d8a91d1f0d3896b61d576d61ba2b925c7d2
+    hash: ad17afc860cb4cc074dbb676b6e95f8c7fe231355a8afb7a9d0dd05a54eab62a
     path: patches/react-router.patch
 
 importers:
@@ -26,8 +26,8 @@ importers:
         specifier: ^19.1.0
         version: 19.1.0(react@19.1.0)
       react-router:
-        specifier: 0.0.0-experimental-213e4b178
-        version: 0.0.0-experimental-213e4b178(patch_hash=e4052743a07aecf9e5a035e3039c2d8a91d1f0d3896b61d576d61ba2b925c7d2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: 0.0.0-experimental-0be18542a
+        version: 0.0.0-experimental-0be18542a(patch_hash=ad17afc860cb4cc074dbb676b6e95f8c7fe231355a8afb7a9d0dd05a54eab62a)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react-server-dom-parcel:
         specifier: ^19.1.0
         version: 19.1.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -1259,8 +1259,8 @@ packages:
     resolution: {integrity: sha512-FPvF2XxTSikpJxcr+bHut2H4gJ17+18Uy20D5/F+SKzFap62R3cM5wH6b8WN3LyGSYeQilLEcJcR1fjBSI2S1A==}
     engines: {node: '>=0.10.0'}
 
-  react-router@0.0.0-experimental-213e4b178:
-    resolution: {integrity: sha512-jeQzH/8tu4wC86kKk1cOTNmLN1oie2+vu/ouq2ief9r2HmgogrqN6qlyy6+UtGtPKDRLJK2N+5QrbgVxDqG7TQ==}
+  react-router@0.0.0-experimental-0be18542a:
+    resolution: {integrity: sha512-1DRmar58wVsx5tmTaWAcXD5J8BSTwfW6IX02rZTmUEpwvfl5lQViI+QeSJb+KWlRGYa5tUj75O8fHuub427dJQ==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       react: '>=18'
@@ -2879,7 +2879,7 @@ snapshots:
 
   react-refresh@0.16.0: {}
 
-  react-router@0.0.0-experimental-213e4b178(patch_hash=e4052743a07aecf9e5a035e3039c2d8a91d1f0d3896b61d576d61ba2b925c7d2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  react-router@0.0.0-experimental-0be18542a(patch_hash=ad17afc860cb4cc074dbb676b6e95f8c7fe231355a8afb7a9d0dd05a54eab62a)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@types/cookie': 0.6.0
       cookie: 1.0.2

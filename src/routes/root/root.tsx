@@ -1,4 +1,4 @@
-import { Link, Links, Outlet, ScrollRestoration } from "react-router/client";
+import { Link, Links, Outlet, ScrollRestoration } from "react-router";
 
 import { Counter } from "../../counter";
 import { ErrorReporter } from "./root.client";
