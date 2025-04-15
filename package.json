@@ -32,7 +32,7 @@
     "@types/parcel-env": "^0.0.6",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "parcel": "^2.14.0",
+    "parcel": "^2.14.4",
     "prettier": "^3.5.3"
   }
 }

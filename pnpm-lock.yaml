@@ -51,7 +51,7 @@ importers:
         specifier: ^19.0.0
         version: 19.1.2(@types/react@19.1.0)
       parcel:
-        specifier: ^2.14.0
+        specifier: ^2.14.4
         version: 2.14.4(@swc/helpers@0.5.15)
       prettier:
         specifier: ^3.5.3
