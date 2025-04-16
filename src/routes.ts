@@ -3,6 +3,7 @@ import type { ServerRouteObject } from "react-router/server";
 export const routes = [
   {
     id: "root",
+    path: "",
     lazy: () => import("./routes/root/root"),
     children: [
       {
