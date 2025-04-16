@@ -4,11 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-patchedDependencies:
-  react-router:
-    hash: ad17afc860cb4cc074dbb676b6e95f8c7fe231355a8afb7a9d0dd05a54eab62a
-    path: patches/react-router.patch
-
 importers:
 
   .:
@@ -26,8 +21,8 @@ importers:
         specifier: ^19.1.0
         version: 19.1.0(react@19.1.0)
       react-router:
-        specifier: 0.0.0-experimental-0be18542a
-        version: 0.0.0-experimental-0be18542a(patch_hash=ad17afc860cb4cc074dbb676b6e95f8c7fe231355a8afb7a9d0dd05a54eab62a)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: 0.0.0-experimental-36a5255b6
+        version: 0.0.0-experimental-36a5255b6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react-server-dom-parcel:
         specifier: ^19.1.0
         version: 19.1.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -1259,8 +1254,8 @@ packages:
     resolution: {integrity: sha512-FPvF2XxTSikpJxcr+bHut2H4gJ17+18Uy20D5/F+SKzFap62R3cM5wH6b8WN3LyGSYeQilLEcJcR1fjBSI2S1A==}
     engines: {node: '>=0.10.0'}
 
-  react-router@0.0.0-experimental-0be18542a:
-    resolution: {integrity: sha512-1DRmar58wVsx5tmTaWAcXD5J8BSTwfW6IX02rZTmUEpwvfl5lQViI+QeSJb+KWlRGYa5tUj75O8fHuub427dJQ==}
+  react-router@0.0.0-experimental-36a5255b6:
+    resolution: {integrity: sha512-rk3HjOH8eI4U++rrapOyXkGtpXXyhUFtcKS3n1/RM0ktYvW06YHfzS5eEi1jS7StyeUbMiT/eWxTZDCsAAbpfA==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       react: '>=18'
@@ -2879,7 +2874,7 @@ snapshots:
 
   react-refresh@0.16.0: {}
 
-  react-router@0.0.0-experimental-0be18542a(patch_hash=ad17afc860cb4cc074dbb676b6e95f8c7fe231355a8afb7a9d0dd05a54eab62a)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  react-router@0.0.0-experimental-36a5255b6(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@types/cookie': 0.6.0
       cookie: 1.0.2
