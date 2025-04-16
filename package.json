@@ -7,6 +7,7 @@
     "server": {
       "source": "src/server.tsx",
       "context": "react-server",
+      "scopeHoist": false,
       "includeNodeModules": {
         "@mjackson/node-fetch-server": false,
         "express": false
