@@ -4,17 +4,17 @@ export const routes = [
   {
     id: "root",
     path: "",
-    lazy: () => import("./routes/root/root"),
+    lazy: () => import("./_routes/root/root"),
     children: [
       {
         id: "home",
         index: true,
-        lazy: () => import("./routes/home/home"),
+        lazy: () => import("./_routes/home/home"),
       },
       {
         id: "about",
         path: "about",
-        lazy: () => import("./routes/about/about"),
+        lazy: () => import("./_routes/about/about"),
       },
     ],
   },
