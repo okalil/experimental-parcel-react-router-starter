@@ -176,6 +176,7 @@ export default new Resolver({
       return {
         filePath,
         code,
+        invalidateOnFileChange: [filePath],
       };
     }
 
@@ -205,6 +206,7 @@ export default new Resolver({
           ".___client-route-module___" +
           path.extname(filePath),
         code,
+        invalidateOnFileChange: [filePath],
       };
     }
 
@@ -238,6 +240,7 @@ export default new Resolver({
           ".___server-route-module___" +
           path.extname(filePath),
         code: "",
+        invalidateOnFileChange: [filePath],
       };
     }
   },
