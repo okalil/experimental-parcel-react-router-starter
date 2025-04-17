@@ -12,8 +12,8 @@ import {
 } from "@react-router/dev/routes";
 import { createJiti } from "jiti";
 
-import { generate, parse } from "./babel/babel";
-import { removeExports } from "./babel/remove-exports";
+import { generate, parse } from "./babel/babel.ts";
+import { removeExports } from "./babel/remove-exports.ts";
 
 const loader = createJiti(import.meta.url);
 
@@ -73,13 +73,25 @@ export default new Resolver({
       filePath: routesPath,
     });
 
-    const routes = await loader
+    let routes = await loader
       .import(routesPath)
       .then((mod) => (mod as { default: RouteConfig }).default)
       .catch(() => {
         console.warn("No routes.ts found, using empty routes.");
         return [];
       });
+
+    console.log({
+      root: options.projectRoot,
+      appDirectory: appDirectory,
+    });
+    routes = [
+      {
+        id: "root",
+        file: "root.tsx",
+        children: routes,
+      },
+    ];
 
     return { appDirectory, routes };
   },
@@ -95,7 +107,7 @@ export default new Resolver({
         const route = stack.pop();
         if (!route) break;
         if (route === closeRouteSymbol) {
-          code += "},";
+          code += "]},";
           continue;
         }
 
@@ -117,6 +129,7 @@ export default new Resolver({
           code += `caseSensitive: true,`;
         }
         if (route.children) {
+          code += ["children:["];
           stack.push(closeRouteSymbol);
           stack.push(...route.children);
         } else {
@@ -129,7 +142,7 @@ export default new Resolver({
       console.log(code);
 
       return {
-        filePath: path.join(process.cwd(), "routes.ts"),
+        filePath: path.join(config.appDirectory, "routes.ts"),
         code,
       };
     }
@@ -187,7 +200,6 @@ export default new Resolver({
       );
 
       const routeSource = await fsp.readFile(filePath, "utf-8");
-      const staticExports = await parseExports(filePath, routeSource);
 
       // TODO: Add sourcemaps.....
       // TODO: Maybe pass TSConfig in here?

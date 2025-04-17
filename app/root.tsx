@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Link, Outlet } from "react-router";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -20,10 +20,10 @@ export default function Root() {
         <nav>
           <ul>
             <li>
-              <a href="/">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="/about">About</a>
+              <Link to="/about">About</Link>
             </li>
           </ul>
         </nav>
