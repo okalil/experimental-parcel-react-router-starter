@@ -5,7 +5,7 @@
   "server": "dist/server.js",
   "targets": {
     "server": {
-      "source": "src/server.tsx",
+      "source": "app/server.ts",
       "context": "react-server",
       "scopeHoist": false,
       "includeNodeModules": {

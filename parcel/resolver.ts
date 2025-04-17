@@ -1,5 +1,6 @@
 import * as fsp from "node:fs/promises";
 import * as path from "node:path";
+import { fileURLToPath } from "node:url";
 
 import oxc from "oxc-parser";
 import oxcTransform from "oxc-transform";
@@ -44,6 +45,42 @@ const CLIENT_ROUTE_EXPORTS_SET = new Set(CLIENT_ROUTE_EXPORTS);
 
 export default new Resolver({
   async loadConfig({ config, options }) {
+    await fsp.mkdir(".react-router-parcel/types", { recursive: true });
+    await fsp.writeFile(
+      ".react-router-parcel/types/+virtual-parcel.d.ts",
+      `
+declare module "virtual:react-router/express" {
+  import { Express } from "express";
+  const express: Express;
+  export default express;
+}
+
+declare module "virtual:react-router/routes" {
+  import { ServerRouteObject } from "react-router/server";
+  const routes: ServerRouteObject[];
+  export default routes;
+}`.trim()
+    );
+
+    // These aren't used by the build, but written as an example to copy and paste if
+    // the user wants to take over control of the entry points.
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
+    await fsp.mkdir("./.react-router-parcel/entries", { recursive: true });
+    await Promise.all([
+      fsp.copyFile(
+        path.join(__dirname, "entry.client.tsx"),
+        "./.react-router-parcel/entries/entry.client.tsx"
+      ),
+      fsp.copyFile(
+        path.join(__dirname, "entry.rsc.ts"),
+        "./.react-router-parcel/entries/entry.rsc.ts"
+      ),
+      fsp.copyFile(
+        path.join(__dirname, "entry.server.tsx"),
+        "./.react-router-parcel/entries/entry.server.tsx"
+      ),
+    ]);
+
     const configPath = path.resolve(
       options.projectRoot,
       "react-router.config.ts"
@@ -92,6 +129,17 @@ export default new Resolver({
     return { appDirectory, routes };
   },
   async resolve({ config, options, specifier }) {
+    if (specifier === "virtual:react-router/express") {
+      console.log({ HERE: "HERE" });
+      const filePath = fileURLToPath(import.meta.resolve("./entry.server.tsx"));
+      console.log({ filePath });
+      const code = await fsp.readFile(filePath, "utf-8");
+      return {
+        filePath,
+        code,
+      };
+    }
+
     if (specifier === "virtual:react-router/routes") {
       let code = "export default [";
 
@@ -142,7 +190,7 @@ export default new Resolver({
     const parseExports = async (filePath: string, source: string) => {
       const parsed = await oxc.parseAsync(filePath, source);
 
-      const routeExports = [];
+      const routeExports: string[] = [];
       for (const staticExport of parsed.module.staticExports) {
         for (const entry of staticExport.entries) {
           if (entry.exportName.name) {

@@ -9,11 +9,11 @@ import {
   ServerStaticRouter,
 } from "react-router" with { env: "react-client" };
 
-import { callServer } from "./server-react" with { env: "react-server" };
+import { callServer } from "./entry.rsc.ts" with { env: "react-server" };
 
 const app = express();
 
-app.use(express.static("dist"));
+app.use("/client", express.static("dist/client"));
 
 app.use(
   createRequestListener(async (request) => {
@@ -35,5 +35,4 @@ app.use(
   })
 );
 
-app.listen(3000);
-console.log("Server listening on port 3000 (http://localhost:3000)");
+export default app;

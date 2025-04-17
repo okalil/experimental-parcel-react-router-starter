@@ -12,7 +12,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>React Router Parcel</title>
       </head>
-      <body>{children}</body>
+      <body>
+        <header>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
@@ -20,19 +34,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function Root() {
   return (
     <>
-      <header>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
       <Outlet />
     </>
   );
+}
+
+export function ErrorBoundary() {
+  return <h1>Oooops</h1>;
 }
