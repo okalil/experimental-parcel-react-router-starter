@@ -1,6 +1,6 @@
-// export function loader() {
-//   return null;
-// }
+export function loader() {
+  return null;
+}
 
 export default function About() {
   return (
