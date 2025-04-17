@@ -12,8 +12,8 @@ import {
 } from "@react-router/dev/routes";
 import { createJiti } from "jiti";
 
-import { generate, parse } from "./babel/babel.mts";
-import { removeExports } from "./babel/remove-exports.mts";
+import { generate, parse } from "./babel/babel";
+import { removeExports } from "./babel/remove-exports";
 
 const loader = createJiti(import.meta.url);
 
