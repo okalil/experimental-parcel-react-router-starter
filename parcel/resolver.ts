@@ -239,7 +239,7 @@ export default new Resolver({
           path.basename(filePath) +
           ".___server-route-module___" +
           path.extname(filePath),
-        code: "",
+        code,
         invalidateOnFileChange: [filePath],
       };
     }
