@@ -1,8 +1,10 @@
-import { useLoaderData } from "react-router";
+import { Route } from "./+types/home";
 
-export default function Home() {
-  const loaderData = useLoaderData();
-  
+export function loader({}: Route.LoaderArgs) {
+  return "hello, world";
+}
+
+export default function Home({ loaderData }: Route.ComponentProps) {
   return (
     <main>
       <h1>Home</h1>
@@ -11,6 +13,3 @@ export default function Home() {
     </main>
   );
 }
-
-export const loader = () => "Hello from server loader";
-export const action = () => {};

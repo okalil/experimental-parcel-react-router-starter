@@ -81,10 +81,6 @@ export default new Resolver({
         return [];
       });
 
-    console.log({
-      root: options.projectRoot,
-      appDirectory: appDirectory,
-    });
     routes = [
       {
         id: "root",
@@ -113,12 +109,10 @@ export default new Resolver({
 
         code += "{";
         code += `lazy: () => import(${JSON.stringify(
-          "virtual-route-module:" +
-            path.resolve(config.appDirectory, route.file)
+          path.resolve(config.appDirectory, route.file) + "?route-module"
         )}),`;
-        if (typeof route.id === "string") {
-          code += `id: ${JSON.stringify(route.id)},`;
-        }
+
+        code += `id: ${JSON.stringify(route.id || createRouteId(route.file))},`;
         if (typeof route.path === "string") {
           code += `path: ${JSON.stringify(route.path)},`;
         }
@@ -131,15 +125,13 @@ export default new Resolver({
         if (route.children) {
           code += ["children:["];
           stack.push(closeRouteSymbol);
-          stack.push(...route.children);
+          stack.push(...[...route.children].reverse());
         } else {
           code += "},";
         }
       }
 
       code += "];\n";
-
-      console.log(code);
 
       return {
         filePath: path.join(config.appDirectory, "routes.ts"),
@@ -165,10 +157,10 @@ export default new Resolver({
 
     // "?client-route-module"
     // "?server-route-module"
-    if (specifier.startsWith("virtual-route-module:")) {
+    if (specifier.endsWith("?route-module")) {
       const filePath = path.resolve(
         config.appDirectory,
-        specifier.slice("virtual-route-module:".length)
+        specifier.slice(0, -"?route-module".length)
       );
       const routeSource = await fsp.readFile(filePath, "utf-8");
       const staticExports = await parseExports(filePath, routeSource);
@@ -177,12 +169,12 @@ export default new Resolver({
       for (const staticExport of staticExports) {
         if (staticExport) {
           if (CLIENT_ROUTE_EXPORTS_SET.has(staticExport)) {
-            code += `export { ${staticExport} } from ${JSON.stringify("virtual-client-route-module:" + filePath)};\n`;
+            code += `export { ${staticExport} } from ${JSON.stringify(filePath + "?client-route-module")};\n`;
           } else {
-            code += `export { ${staticExport} } from ${JSON.stringify("virtual-server-route-module:" + filePath)};\n`;
+            code += `export { ${staticExport} } from ${JSON.stringify(filePath + "?server-route-module")};\n`;
           }
         } else {
-          code += `export { default } from ${JSON.stringify("virtual-client-route-module:" + filePath)};\n`;
+          code += `export { default } from ${JSON.stringify(filePath + "?client-route-module")};\n`;
         }
       }
 
@@ -193,10 +185,10 @@ export default new Resolver({
       };
     }
 
-    if (specifier.startsWith("virtual-client-route-module:")) {
+    if (specifier.endsWith("?client-route-module")) {
       const filePath = path.resolve(
         config.appDirectory,
-        specifier.slice("virtual-client-route-module:".length)
+        specifier.slice(0, -"?client-route-module".length)
       );
 
       const routeSource = await fsp.readFile(filePath, "utf-8");
@@ -212,20 +204,21 @@ export default new Resolver({
       let code = '"use client";\n' + generate(ast).code;
 
       return {
-        filePath:
-          path.dirname(filePath) +
+        filePath: path.join(
+          path.dirname(filePath),
           path.basename(filePath) +
-          ".___client-route-module___" +
-          path.extname(filePath),
+            ".___client-route-module___" +
+            path.extname(filePath)
+        ),
         code,
         invalidateOnFileChange: [filePath],
       };
     }
 
-    if (specifier.startsWith("virtual-server-route-module:")) {
+    if (specifier.endsWith("?server-route-module")) {
       const filePath = path.resolve(
         config.appDirectory,
-        specifier.slice("virtual-server-route-module:".length)
+        specifier.slice(0, -"?server-route-module".length)
       );
       const routeSource = await fsp.readFile(filePath, "utf-8");
       const staticExports = await parseExports(filePath, routeSource);
@@ -241,19 +234,24 @@ export default new Resolver({
       let code = generate(ast).code;
       for (const staticExport of staticExports) {
         if (CLIENT_ROUTE_EXPORTS_SET.has(staticExport)) {
-          code += `export { ${staticExport} } from ${JSON.stringify("virtual-client-route-module:" + filePath)};\n`;
+          code += `export { ${staticExport} } from ${JSON.stringify(filePath + "?client-route-module")};\n`;
         }
       }
 
       return {
-        filePath:
-          path.dirname(filePath) +
+        filePath: path.join(
+          path.dirname(filePath),
           path.basename(filePath) +
-          ".___server-route-module___" +
-          path.extname(filePath),
+            ".___server-route-module___" +
+            path.extname(filePath)
+        ),
         code,
         invalidateOnFileChange: [filePath],
       };
     }
   },
 });
+
+function createRouteId(file: string) {
+  return path.basename(file).slice(0, -path.extname(file).length);
+}

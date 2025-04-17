@@ -1,5 +1,9 @@
 import { Link, Outlet } from "react-router";
 
+export function loader() {
+  return null;
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
