@@ -10,8 +10,6 @@ import "./client";
 // @ts-expect-error
 import routes from "virtual:react-router/routes";
 
-routes[0].lazy().then((mod) => console.log(mod));
-
 export async function callServer(request: Request) {
   const match = await matchServerRequest({ request, routes });
   if (match instanceof Response) {
