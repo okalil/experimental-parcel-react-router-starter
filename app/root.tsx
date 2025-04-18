@@ -27,11 +27,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function Root() {
+export function ServerComponent() {
   return (
-    <>
+    <div id="root">
       <Outlet />
-    </>
+    </div>
   );
 }
 
