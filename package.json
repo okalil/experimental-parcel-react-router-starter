@@ -34,7 +34,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "parcel": "^2.14.4",
-    "parcel-config-react-router-experimental": "^1.0.7",
+    "parcel-config-react-router-experimental": "^1.0.8",
     "prettier": "^3.5.3"
   }
 }
