@@ -1,5 +1,7 @@
 import { Link, Outlet } from "react-router";
 
+import "./styles.css";
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
