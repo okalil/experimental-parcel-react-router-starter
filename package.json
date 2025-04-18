@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "parcel build",
-    "clean": "rm -rf dist node_modules",
+    "clean": "rm -rf dist node_modules .parcel-cache .react-router .react-router-parcel",
     "dev": "parcel",
     "start": "node ./dist/server.js"
   },
