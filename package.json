@@ -55,6 +55,7 @@
     "oxc-parser": "^0.63.0",
     "oxc-transform": "^0.63.0",
     "parcel": "^2.14.4",
+    "parcel-config-react-router-experimental": "^1.0.3",
     "prettier": "^3.5.3",
     "tailwindcss": "^4.1.4"
   }
