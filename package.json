@@ -16,7 +16,7 @@
     "build": "parcel build",
     "clean": "rm -rf dist node_modules .parcel-cache .react-router .react-router-parcel",
     "dev": "parcel",
-    "start": "node ./dist/server.js"
+    "start": "node ./dist/server/server.js"
   },
   "dependencies": {
     "@parcel/runtime-rsc": "^2.14.4",
