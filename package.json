@@ -28,6 +28,8 @@
   },
   "devDependencies": {
     "@react-router/dev": "0.0.0-experimental-1a5899f7e",
+    "@tailwindcss/postcss": "^4.1.4",
+    "@tailwindcss/typography": "^0.5.16",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/express": "^4",
     "@types/node": "^22.10.5",
@@ -35,6 +37,8 @@
     "@types/react-dom": "^19.0.0",
     "parcel": "^2.14.4",
     "parcel-config-react-router-experimental": "^1.0.9",
-    "prettier": "^3.5.3"
+    "postcss": "^8.2.1",
+    "prettier": "^3.5.3",
+    "tailwindcss": "^4.1.4"
   }
 }
