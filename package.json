@@ -20,14 +20,15 @@
   },
   "dependencies": {
     "@parcel/runtime-rsc": "^2.14.4",
+    "@ryanflorence/async-provider": "^0.0.1",
     "express": "^4.21.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router": "0.0.0-experimental-1a5899f7e",
+    "react-router": "0.0.0-experimental-e988dc602",
     "react-server-dom-parcel": "^19.1.0"
   },
   "devDependencies": {
-    "@react-router/dev": "0.0.0-experimental-1a5899f7e",
+    "@react-router/dev": "0.0.0-experimental-e988dc602",
     "@tailwindcss/postcss": "^4.1.4",
     "@tailwindcss/typography": "^0.5.16",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
@@ -36,7 +37,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "parcel": "^2.14.4",
-    "parcel-config-react-router-experimental": "^1.0.9",
+    "parcel-config-react-router-experimental": "^1.0.10",
     "postcss": "^8.2.1",
     "prettier": "^3.5.3",
     "tailwindcss": "^4.1.4"

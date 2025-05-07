@@ -1,4 +1,7 @@
+import { pull } from "@ryanflorence/async-provider";
+
 import { Route } from "./+types/home";
+import { stringContext } from "../context";
 
 import { sayHello } from "./home.actions.ts";
 import { PendingButton } from "./home.client.tsx";
@@ -6,7 +9,10 @@ import { PendingButton } from "./home.client.tsx";
 export function loader({ request }: Route.LoaderArgs) {
   const url = new URL(request.url);
   const name = url.searchParams.get("name");
-  return { name: name || "Unknown" };
+  return {
+    message: pull(stringContext),
+    name: name || "Unknown",
+  };
 }
 
 export function ServerComponent({ loaderData }: Route.ComponentProps) {

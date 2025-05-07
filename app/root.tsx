@@ -1,7 +1,17 @@
-import { Link, Outlet } from "react-router";
+import { provide, pull } from "@ryanflorence/async-provider";
+import { Link, Outlet, unstable_MiddlewareFunction } from "react-router";
 
+import { stringContext } from "./context";
 import { GlobalNavigationLoadingBar } from "./root.client.tsx";
 import "./styles.css";
+
+export const unstable_middleware: unstable_MiddlewareFunction<Response>[] = [
+  async ({}, next) => {
+    let res = await provide(new Map([[stringContext, "Hello World!"]]), next);
+    res.headers.set("X-Custom-Header", "Value");
+    return res;
+  },
+];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
