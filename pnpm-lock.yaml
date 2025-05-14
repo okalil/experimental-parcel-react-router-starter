@@ -58,8 +58,8 @@ importers:
         specifier: ^2.15.0
         version: 2.15.0
       parcel-config-react-router-experimental:
-        specifier: ^1.0.13
-        version: 1.0.13(@parcel/core@2.15.0)(@react-router/dev@0.0.0-experimental-3f68c7c20(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)(react-router@0.0.0-experimental-3f68c7c20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(vite@6.3.0(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)))(react-dom@19.1.0(react@19.1.0))(react-router@0.0.0-experimental-3f68c7c20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-server-dom-parcel@19.1.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        specifier: ^1.0.14
+        version: 1.0.14(@parcel/core@2.15.0)(@react-router/dev@0.0.0-experimental-3f68c7c20(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)(react-router@0.0.0-experimental-3f68c7c20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(vite@6.3.0(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)))(react-dom@19.1.0(react@19.1.0))(react-router@0.0.0-experimental-3f68c7c20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-server-dom-parcel@19.1.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       postcss:
         specifier: ^8.2.1
         version: 8.5.3
@@ -2125,12 +2125,12 @@ packages:
   package-json-from-dist@1.0.1:
     resolution: {integrity: sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==}
 
-  parcel-config-react-router-experimental@1.0.13:
-    resolution: {integrity: sha512-kFYwBXIV2J7wC5nkbEbT+d0BviB32OzuauK9c5M4D0mdeCpBD/Lgz5kVzcwK34NGrQbauV8ZoNdSAsDbyFvKsw==}
+  parcel-config-react-router-experimental@1.0.14:
+    resolution: {integrity: sha512-8c2veVGYk5I2MsZvznjsEBykDgR7Z2JtvUD627+hdAHOZlvag+EnEVJqwdQsATEmnYOFqfoYsxRV3TUaVcGLdg==}
     engines: {parcel: '>=2.15.0'}
 
-  parcel-resolver-react-router-experimental@1.0.12:
-    resolution: {integrity: sha512-8zqtUipTf0Vf128p1XlWtnui1OiDTtK1ekFg61kf+mUn56qBctP41JJIjlF7I6JVFyXv0EI4ouM9aehNRis/Vg==}
+  parcel-resolver-react-router-experimental@1.0.13:
+    resolution: {integrity: sha512-watkzkS9l6iEZB+6G92hE6ltVPYR1V++e/OEJgzi5yQRDBDILF9sxDBGXhbEPH9HqLD6T3CxvLpAX1Bhg8Hi0A==}
     engines: {parcel: '>=2.15.0'}
     peerDependencies:
       '@react-router/dev': '*'
@@ -4808,10 +4808,10 @@ snapshots:
 
   package-json-from-dist@1.0.1: {}
 
-  parcel-config-react-router-experimental@1.0.13(@parcel/core@2.15.0)(@react-router/dev@0.0.0-experimental-3f68c7c20(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)(react-router@0.0.0-experimental-3f68c7c20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(vite@6.3.0(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)))(react-dom@19.1.0(react@19.1.0))(react-router@0.0.0-experimental-3f68c7c20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-server-dom-parcel@19.1.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0):
+  parcel-config-react-router-experimental@1.0.14(@parcel/core@2.15.0)(@react-router/dev@0.0.0-experimental-3f68c7c20(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)(react-router@0.0.0-experimental-3f68c7c20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(vite@6.3.0(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)))(react-dom@19.1.0(react@19.1.0))(react-router@0.0.0-experimental-3f68c7c20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-server-dom-parcel@19.1.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0):
     dependencies:
       '@parcel/config-default': 2.15.0(@parcel/core@2.15.0)
-      parcel-resolver-react-router-experimental: 1.0.12(@parcel/core@2.15.0)(@react-router/dev@0.0.0-experimental-3f68c7c20(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)(react-router@0.0.0-experimental-3f68c7c20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(vite@6.3.0(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)))(react-dom@19.1.0(react@19.1.0))(react-router@0.0.0-experimental-3f68c7c20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-server-dom-parcel@19.1.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+      parcel-resolver-react-router-experimental: 1.0.13(@parcel/core@2.15.0)(@react-router/dev@0.0.0-experimental-3f68c7c20(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)(react-router@0.0.0-experimental-3f68c7c20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(vite@6.3.0(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)))(react-dom@19.1.0(react@19.1.0))(react-router@0.0.0-experimental-3f68c7c20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-server-dom-parcel@19.1.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       parcel-resolver-react-router-typegen-experimental: 1.0.12(@parcel/core@2.15.0)(@react-router/dev@0.0.0-experimental-3f68c7c20(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)(react-router@0.0.0-experimental-3f68c7c20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(vite@6.3.0(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)))
     transitivePeerDependencies:
       - '@parcel/core'
@@ -4824,7 +4824,7 @@ snapshots:
       - react-server-dom-parcel
       - supports-color
 
-  parcel-resolver-react-router-experimental@1.0.12(@parcel/core@2.15.0)(@react-router/dev@0.0.0-experimental-3f68c7c20(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)(react-router@0.0.0-experimental-3f68c7c20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(vite@6.3.0(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)))(react-dom@19.1.0(react@19.1.0))(react-router@0.0.0-experimental-3f68c7c20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-server-dom-parcel@19.1.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0):
+  parcel-resolver-react-router-experimental@1.0.13(@parcel/core@2.15.0)(@react-router/dev@0.0.0-experimental-3f68c7c20(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)(react-router@0.0.0-experimental-3f68c7c20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(vite@6.3.0(@types/node@22.14.0)(jiti@2.4.2)(lightningcss@1.30.0)))(react-dom@19.1.0(react@19.1.0))(react-router@0.0.0-experimental-3f68c7c20(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-server-dom-parcel@19.1.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0):
     dependencies:
       '@babel/core': 7.26.10
       '@babel/generator': 7.27.0
