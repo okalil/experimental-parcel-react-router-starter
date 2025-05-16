@@ -6,7 +6,7 @@ An experimental template for building full-stack React applications using React 
 
 - ⚛️ React Server Components
 - 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
+- ⚡️ Hot Module Replacement (HMR) (client components only ATM)
 - 📦 Asset bundling and optimization
 - 🔄 Data loading and mutations
 - 🔒 TypeScript by default
