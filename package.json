@@ -38,6 +38,7 @@
     "@types/react-dom": "^19.0.0",
     "parcel": "^2.15.0",
     "parcel-config-react-router-experimental": "^1.0.14",
+    "parcel-resolver-react-router-experimental": "^1.0.13",
     "postcss": "^8.2.1",
     "prettier": "^3.5.3",
     "tailwindcss": "^4.1.4"
