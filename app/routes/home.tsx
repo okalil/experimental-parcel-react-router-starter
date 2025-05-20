@@ -1,5 +1,6 @@
 import { pull } from "@ryanflorence/async-provider";
-import { createCookie, Form, redirect } from "react-router";
+import { Form } from "react-router";
+import { createCookie, redirect } from "react-router/rsc";
 
 import { Route } from "./+types/home";
 import { stringContext } from "../context";
@@ -15,7 +16,7 @@ export async function loader({ request }: Route.LoaderArgs) {
   return {
     message: pull(stringContext),
     name: name || "Unknown",
-    cookie: await cookie.parse(request.headers.get("cookie")),
+    cookie: await cookie.parse(request.headers.get("Cookie")),
   };
 }
 
@@ -62,7 +63,10 @@ export function ServerComponent({ loaderData }: Route.ComponentProps) {
 
 export async function action({ request }: Route.ActionArgs) {
   const value = Math.random().toString(36);
-  return redirect(".", {
-    headers: [["set-cookie", await cookie.serialize(value)]],
+  throw redirect(".", {
+    headers: {
+      "Set-Cookie": await cookie.serialize("some value"),
+      "X-Playground": "awesome",
+    },
   });
 }
