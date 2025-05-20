@@ -1,4 +1,5 @@
 import { pull } from "@ryanflorence/async-provider";
+import { createCookie, Form, redirect } from "react-router";
 
 import { Route } from "./+types/home";
 import { stringContext } from "../context";
@@ -6,12 +7,15 @@ import { stringContext } from "../context";
 import { sayHello } from "./home.actions.ts";
 import { PendingButton } from "./home.client.tsx";
 
-export function loader({ request }: Route.LoaderArgs) {
+const cookie = createCookie("my_cookie");
+
+export async function loader({ request }: Route.LoaderArgs) {
   const url = new URL(request.url);
   const name = url.searchParams.get("name");
   return {
     message: pull(stringContext),
     name: name || "Unknown",
+    cookie: await cookie.parse(request.headers.get("cookie")),
   };
 }
 
@@ -46,7 +50,19 @@ export function ServerComponent({ loaderData }: Route.ComponentProps) {
             <PendingButton />
           </div>
         </form>
+
+        <h2>Route Action</h2>
+        <Form method="POST" replace>
+          <button>Submit Route Action</button>
+        </Form>
       </article>
     </main>
   );
+}
+
+export async function action({ request }: Route.ActionArgs) {
+  const value = Math.random().toString(36);
+  return redirect(".", {
+    headers: [["set-cookie", await cookie.serialize(value)]],
+  });
 }
